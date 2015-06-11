@@ -2,6 +2,7 @@ var expect = require('expect.js');
 var client = require('redis').createClient(6379, '127.0.0.1', {});
 var sadd = require('../src/redis').sadd;
 var smembers = require('../src/redis').smembers;
+var del = require('../src/redis').del;
 
 var setKey = 'test';
 
@@ -83,6 +84,28 @@ describe('smembersメソッド', function() {
     deleteKey(setKey);
     smembers(setKey, function(err, val) {
       expect(val).to.be.empty();
+      done();
+    });
+  });
+});
+
+describe('delメソッド', function() {
+  it('関数であること', function(done) {
+    expect(del).to.be.a('function');
+    done();
+  });
+
+  it('存在しないキーを削除すると結果が0になること', function(done) {
+    del(setKey, function(err, val) {
+      expect(val).to.be(0);
+      done();
+    });
+  });
+
+  it('存在するキーを削除すると結果が1になること', function(done) {
+    sadd(setKey, 1, function(err) { if(err) console.error(err); });
+    del(setKey, function(err, val) {
+      expect(val).to.be(1);
       done();
     });
   });

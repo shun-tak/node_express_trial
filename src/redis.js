@@ -22,3 +22,14 @@ exports.smembers = function smembers(setKey, callback) {
     callback(err, val);
   });
 };
+
+/**
+ * キーを削除する
+ * @param setKey 削除したいキー
+ * @param callback (err, val)を渡し、削除が成功すればvalが1を、削除が失敗すればvalが0を返す
+ */
+exports.del = function del(setKey, callback) {
+  client.del(setKey, function(err, val) {
+    callback(err, val);
+  });
+};
