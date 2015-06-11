@@ -27,7 +27,9 @@
     "node": ">=0.10.38 <0.11"
   },
   "dependencies": {
-    "express": "~4.12.4"
+    "express": "~4.12.4",
+    "hiredis": "~0.4.0",
+    "redis": "~0.12.1"
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
