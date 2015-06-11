@@ -8,10 +8,17 @@ var client = require('redis').createClient(6379, '127.0.0.1', {});
  */
 exports.sadd = function sadd(setKey, num, callback) {
   client.sadd(setKey, num, function(err, val) {
-    if (err) {
-      console.error(err);
-      callback(err);
-    }
+    callback(err, val);
+  });
+};
+
+/**
+ * セット型の全ての要素を取得する
+ * @param setKey セット型のキー
+ * @param callback (err, val)を渡し、valに配列が返る
+ */
+exports.smembers = function smembers(setKey, callback) {
+  client.smembers(setKey, function(err, val) {
     callback(err, val);
   });
 };
