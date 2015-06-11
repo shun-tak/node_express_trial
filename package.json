@@ -1,0 +1,25 @@
+{
+  "name": "node_express_trial",
+  "version": "0.0.1",
+  "description": "node.jsのexpressを使ったAPIサーバーを作ってみる",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shun-tak/node_express_trial.git"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "mocha",
+    "expect.js"
+  ],
+  "author": "shun-tak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shun-tak/node_express_trial/issues"
+  },
+  "homepage": "https://github.com/shun-tak/node_express_trial"
+}
