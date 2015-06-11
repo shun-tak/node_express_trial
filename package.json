@@ -4,6 +4,7 @@
   "description": "node.jsのexpressを使ったAPIサーバーを作ってみる",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "mocha"
   },
   "repository": {
@@ -21,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/shun-tak/node_express_trial/issues"
   },
-  "homepage": "https://github.com/shun-tak/node_express_trial"
+  "homepage": "https://github.com/shun-tak/node_express_trial",
+  "engines": {
+    "node": ">=0.10.38 <0.11"
+  },
+  "dependencies": {
+    "express": "~4.12.4"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "mocha": "~2.2.5"
+  }
 }
