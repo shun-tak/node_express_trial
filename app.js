@@ -54,6 +54,22 @@ app.get('/reset', function(req, res) {
   });
 });
 
+app.use(function(req, res, next) {
+  res.status(404).json({
+    'status': '404',
+    'message': 'Not found',
+    'requestUrl': req.originalUrl
+  });
+});
+
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).json({
+    'status': '500',
+    'message': 'Internal server error'
+  });
+});
+
 var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
