@@ -32,13 +32,16 @@ exports.next = function next(callback) {
   this.list(function(err, val) {
     if (err) {
       console.error(err);
+      callback(err, null);
+      return;
     }
     // 出現済みの数
     var list = _.map(val, function(str) { return parseInt(str, 10); });
 
     // すでに全ての数が出現していたらエラーを返す
-    if(list.length === 75) {
+    if(list.length >= 75) {
       callback(new Error('全ての数が出現済みです!'), null);
+      return;
     }
 
     // 1から75の整数

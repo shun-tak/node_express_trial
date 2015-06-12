@@ -13,6 +13,8 @@ node.jsのexpressを使ったAPIサーバーを作ってみる
 brew install redis
 # redis起動 (ポート: 6379)
 redis-server
+# アプリ起動
+npm start
 ```
 
 
@@ -25,15 +27,30 @@ redis-server
 
 1~75の範囲の整数を返します（/listに記録された数は除く）。出現した数は/listに記録されます。
 
+```
+curl localhost:3000/next
+# => {"nextNumber":32}
+```
+
 
 ### /list
 
 今まで出現した数のリストを返します。
 
+```
+curl localhost:3000/list
+# => {"list":["32","34","58"]}
+```
+
 
 ### /reset
 
 今まで出現した数のリストをリセットします。
+
+```
+curl localhost:3000/reset
+# => {"message":"リセットしました"}
+```
 
 
 ## 使ってるモジュール・ライブラリ・フレームワークのドキュメント
