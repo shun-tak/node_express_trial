@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha"
+    "test": "mocha",
+    "jshint": "jshint ./*.js src/*.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "dependencies": {
     "express": "~4.12.4",
     "hiredis": "~0.4.0",
+    "jshint": "~2.8.0",
     "redis": "~0.12.1",
     "underscore": "~1.8.3"
   },

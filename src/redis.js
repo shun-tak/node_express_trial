@@ -1,3 +1,4 @@
+'use strict';
 var client = require('redis').createClient(6379, '127.0.0.1', {});
 
 /**
