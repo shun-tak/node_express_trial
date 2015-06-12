@@ -17,9 +17,8 @@ app.get('/', function (req, res) {
 
 app.get('/next', function(req, res) {
   bingo.next(function(err, nextNumber) {
-    if(err) {
-      res.status(403).json({ 'error': err.message });
-      return;
+    if (err) {
+      return res.status(403).json({ 'error': err.message });
     }
     res.json({ 'nextNumber': nextNumber });
   });
@@ -27,9 +26,8 @@ app.get('/next', function(req, res) {
 
 app.get('/list', function(req, res) {
   bingo.list(function(err, val) {
-    if(err) {
-      res.status(500).json({ 'error': err.message });
-      return;
+    if (err) {
+      return res.status(500).json({ 'error': err.message });
     }
     res.json({ 'list': val });
   });
@@ -37,18 +35,15 @@ app.get('/list', function(req, res) {
 
 app.get('/reset', function(req, res) {
   bingo.reset(function(err, val) {
-    if(err) {
-      res.status(500).json({ 'error': err.message });
-      return;
+    if (err) {
+      return res.status(500).json({ 'error': err.message });
     }
 
-    if(val === 0) {
-      res.json({ 'message': '既にリセット済みです' });
-      return;
+    if (val === 0) {
+      return res.json({ 'message': '既にリセット済みです' });
     }
-    if(val === 1) {
-      res.json({ 'message': 'リセットしました' });
-      return;
+    if (val === 1) {
+      return res.json({ 'message': 'リセットしました' });
     }
     res.status(500).json({ 'error': '結果が0,1以外になりました' });
   });
